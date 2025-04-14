@@ -1,8 +1,8 @@
 # Obesity-Level-Prediction
 
 Supervised ML project to predict patient obesity level based on lifestyle habits, with full pipeline: data cleaning,
-exploratory data analysis, data preprocessing, model training, evaluation, and deployment. Developed in Konecta's AI/ML
-internship program.
+feature engineering, exploratory data analysis, data preprocessing, model training, evaluation, and deployment.
+Developed in Konecta's AI/ML internship program.
 
 ## 🎓 Dataset Credits
 
