@@ -18,22 +18,22 @@ Please refer to the dataset page for further details, licensing, and terms of us
 
 ## Dataset Features Description
 
-|          Abbreviation          |             Full Description              |    Example    |
-|:------------------------------:|:-----------------------------------------:|:-------------:|
-|             Gender             |              Male or Female               |     Male      |
-|              Age               |               Age in Years                |      21       |
-|             Height             |             Height in Meters              |     1.78      |
-|             Weight             |            Weight in Kilograms            |     89.8      |
-| family_history_with_overweight |      Family History with Overweight       |      Yes      |
-|              FAVC              | Frequent Consumption of High Calorie food |      No       |
-|              FCVC              |    Frequency of Vegetable Consumption     |       0       |
-|              NCP               |       Number of Main Meals per Day        |       1       |
-|              CAEC              |  Food Consumption in between Main Meals   |   Sometimes   |
-|             Smoke              |  Person Smokes on a Regular Basis or Not  |      Yes      |
-|              CH2O              |            Daily Water Intake             |       2       |
-|              SCC               |      Person Monitors Calorie Intake       |      No       |
-|              FAF               |        Physical Activity Frequency        |       3       |
-|              TUE               |        Time Spent Using Technology        |       0       |
-|              CALC              |       Alcohol Consumption Frequency       |  Frequently   |
-|             MTRANS             |       Main Means of Transportation        |    Walking    |
-|           NObeyesdad           |               Obesity Level               | Normal_Weight |
+|         Feature Name          |              Full Description               |    Example    |
+|:-----------------------------:|:-------------------------------------------:|:-------------:|
+|          **Gender**           |               Male or Female                |     Male      |
+|            **Age**            |                Age in Years                 |      21       |
+|          **Height**           |              Height in Meters               |     1.78      |
+|          **Weight**           |             Weight in Kilograms             |     89.8      |
+| **Overweight_Family_History** |       Family History with Overweight        |      Yes      |
+| **High_Calorie_Consumption**  |  Frequent Consumption of High Calorie food  |      No       |
+|   **Vegetable_Consumption**   | Frequency of Vegetable Consumption (1 to 3) |       1       |
+|        **Main_Meals**         |        Number of Main Meals per Day         |       2       |
+|     **Snack_Consumption**     |   Food Consumption in between Main Meals    |   Sometimes   |
+|          **Smoker**           |   Person Smokes on a Regular Basis or Not   |      Yes      |
+|       **Water_Intake**        |         Daily Water Intake (1 to 3)         |       2       |
+|    **Calorie_Monitoring**     |       Person Monitors Calorie Intake        |      No       |
+|     **Physical_Activity**     |    Physical Activity Frequency (0 to 3)     |       3       |
+|         **Tech_Time**         |    Time Spent Using Technology (0 to 2)     |       0       |
+|    **Alcohol_Consumption**    |        Alcohol Consumption Frequency        |  Frequently   |
+|    **Transportation_Mean**    |        Main Means of Transportation         |    Walking    |
+|       **Obesity_Level**       |                Obesity Level                | Normal_Weight |
