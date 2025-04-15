@@ -39,4 +39,3 @@ Please refer to the dataset page for further details, licensing, and terms of us
 |       **Obesity_Level**       |                Obesity Level                | Normal_Weight |
 |            **BMI**            |               Body Mass Index               |     24.56     |
 |            **BMR**            |            Basal Metabolic Rate             |    1905.5     |
-|          **Overall**          |  Calculated Score Based on Other Features   | Normal_Weight |
