@@ -37,3 +37,6 @@ Please refer to the dataset page for further details, licensing, and terms of us
 |    **Alcohol_Consumption**    |        Alcohol Consumption Frequency        |  Frequently   |
 |    **Transportation_Mean**    |        Main Means of Transportation         |    Walking    |
 |       **Obesity_Level**       |                Obesity Level                | Normal_Weight |
+|            **BMI**            |               Body Mass Index               |     24.56     |
+|            **BMR**            |            Basal Metabolic Rate             |    1905.5     |
+|          **Overall**          |  Calculated Score Based on Other Features   | Normal_Weight |
