@@ -1,3 +1,8 @@
+"""
+This script defines the functions that calculates the Body Mass Index and Basal Metabolic Rate
+If the script is run directly, it adds those features to the cleaned data and saves the engineered data.
+"""
+
 import pandas as pd
 
 
