@@ -3,6 +3,11 @@ DecisionTreeClassifier Interface Script
 This script defines the function needed to send user input to the classifier
 and return the corresponding obesity level.
 If the script is run directly, it tests the first column of the cleaned data.
+
+Example Usage:
+from Model_Interface import predict_from_input
+
+prediction = predict_from_input(user_input)
 """
 
 import pandas as pd
