@@ -15,7 +15,7 @@ from Feature_Engineering import add_bmi, add_bmr
 import joblib
 
 preprocessor = joblib.load('preprocessors/X_preprocessor.pkl')
-model = joblib.load('models/DecisionTreeClassifier.pkl')
+model = joblib.load('models/SVC.pkl')
 y_encoder = joblib.load('preprocessors/y_encoder.pkl')
 
 

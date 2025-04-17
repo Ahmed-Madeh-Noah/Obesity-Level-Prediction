@@ -22,5 +22,6 @@ if __name__ == "__main__":
     df = pd.read_csv("data/Obesity_Dataset_Cleaned.csv")
     df["BMI"] = df.apply(add_bmi, axis=1)
     df["BMR"] = df.apply(add_bmr, axis=1)
+    df = df.drop(columns=["Gender", "Main_Meals", "Smoker", "Calorie_Monitoring", "Transportation_Mean"])
     print(df.head())
     df.to_csv("data/Obesity_Dataset_Engineered.csv", index=False)
