@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Obesity Prediction</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <div class="container">
+      <h2>Obesity Level Prediction</h2>
+
+      {% if not prediction_text %}
+
+      <form action="/predict" method="post">
+
+          <label for="Gender">Gender:</label>
+          <select name="Gender" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+          </select>
+
+          <label for="Age">Age:</label>
+          <input type="number" name="Age" step="1" max="100" required>
+
+          <label for="Height">Height (in meters):</label>
+          <input type="number" name="Height" step="0.01" max="2" required>
+
+          <label for="Weight">Weight (in kg):</label>
+          <input type="number" name="Weight" step="0.01" max="180" required>
+
+          <label for="family_history_with_overweight">Family History with Overweight:</label>
+          <select name="family_history_with_overweight" required>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+          </select>
+
+          <label for="FAVC">Frequent Consumption of High Caloric Food (FAVC):</label>
+          <select name="FAVC" required>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+          </select>
+
+          <label for="FCVC">Frequency of Vegetable Consumption (1-3):</label>
+          <input type="number" name="FCVC" step="0.01" max="3" required>
+<!--          <select name="FCVC" required>-->
+<!--              <option value="1">1</option>-->
+<!--              <option value="2">2</option>-->
+<!--              <option value="3">3</option>-->
+<!--          </select>-->
+
+          <label for="NCP">Number of Meals (1-4):</label>
+          <input type="number" name="NCP" step="0.01" max="4" required>
+<!--          <select name="NCP" required>-->
+<!--              <option value="1">1</option>-->
+<!--              <option value="2">2</option>-->
+<!--              <option value="3">3</option>-->
+<!--              <option value="4">4</option>-->
+<!--          </select>-->
+
+          <label for="CAEC">Eating Between Meals (CAEC):</label>
+          <select name="CAEC" required>
+              <option value="Always">Always</option>
+              <option value="Frequently">Frequently</option>
+              <option value="Sometimes">Sometimes</option>
+              <option value="no">No</option>
+          </select>
+
+          <label for="SMOKE">Smoke:</label>
+          <select name="SMOKE" required>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+          </select>
+
+          <label for="CH2O">Water Consumption In Liter (0-3):</label>
+          <input type="number" name="CH2O" step="0.01" max="3" required>
+<!--          <select name="CH2O" required>-->
+<!--              <option value="0">0</option>-->
+<!--              <option value="1">1</option>-->
+<!--              <option value="2">2</option>-->
+<!--              <option value="3">3</option>-->
+<!--          </select>-->
+
+          <label for="SCC">Calories Monitor (SCC):</label>
+          <select name="SCC" required>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+          </select>
+
+          <label for="FAF">Physical Activity Frequency (FAF):</label>
+          <input type="number" name="FAF" step="0.01" required>
+
+          <label for="TUE">Time Using Technology Devices (TUE):</label>
+          <input type="number" name="TUE" step="0.001" required>
+
+          <label for="CALC">Alcohol Consumption:</label>
+          <select name="CALC" required>
+              <option value="Always">Always</option>
+              <option value="Frequently">Frequently</option>
+              <option value="Sometimes">Sometimes</option>
+              <option value="no">No</option>
+          </select>
+
+          <label for="MTRANS">Transportation Mode:</label>
+          <select name="MTRANS" required>
+              <option value="Public_Transportation">Public Transportation</option>
+              <option value="Walking">Walking</option>
+              <option value="Automobile">Automobile</option>
+              <option value="Motorbike">Motorbike</option>
+              <option value="Bike">Bike</option>
+          </select>
+
+          <button type="submit">Predict</button>
+      </form>
+      {% endif %}
+
+
+      {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/" style="text-decoration: none;">
+                <button type="button">Try Again</button>
+            </a>
+        </div>
+      {% endif %}
+
+  </div>
+
+<!-- Custom confirmation modal -->
+<div id="customModal" class="modal">
+  <div class="modal-content">
+    <p>Are you sure you want to submit the form?</p>
+    <div class="modal-buttons">
+      <button id="confirmYes">Yes</button>
+      <button id="confirmNo">Cancel</button>
+    </div>
+  </div>
+</div>
+
+  <script type="text/javascript" src="../static/script.js"></script>
+
+</body>
+</html>
