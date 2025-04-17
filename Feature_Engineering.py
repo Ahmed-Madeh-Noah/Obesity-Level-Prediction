@@ -19,8 +19,8 @@ def add_bmr(row: pd.Series) -> float:
 
 
 if __name__ == "__main__":
-    df = pd.read_csv("data/Obesity Dataset - Cleaned.csv")
+    df = pd.read_csv("data/Obesity_Dataset_Cleaned.csv")
     df["BMI"] = df.apply(add_bmi, axis=1)
     df["BMR"] = df.apply(add_bmr, axis=1)
     print(df.head())
-    df.to_csv("data/Obesity Dataset - Engineered.csv", index=False)
+    df.to_csv("data/Obesity_Dataset_Engineered.csv", index=False)
