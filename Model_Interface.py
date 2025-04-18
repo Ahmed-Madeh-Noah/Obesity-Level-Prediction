@@ -1,5 +1,5 @@
 """
-DecisionTreeClassifier Interface Script
+Model Interface Script
 This script defines the function needed to send user input to the classifier
 and return the corresponding obesity level.
 If the script is run directly, it tests the first column of the cleaned data.

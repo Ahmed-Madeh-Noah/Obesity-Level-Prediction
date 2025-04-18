@@ -1,3 +1,15 @@
+"""
+Model Evaluation Script
+This script defines the class needed to evaluate different classification models.
+If the script is run directly, it initializes an empty evaluations dataframe.
+
+Example Usage:
+from Model_Evaluation import ModelsEvaluator
+
+modelsEvaluator = ModelsEvaluator(X_train, y_train, X_val, y_val, X_test, y_test)
+modelsEvaluator.evaluate("GaussianNB", GaussianNB(), save_model=True)
+"""
+
 import pandas as pd
 import numpy as np
 from sklearn.base import BaseEstimator
