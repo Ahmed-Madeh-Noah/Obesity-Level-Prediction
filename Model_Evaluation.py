@@ -6,8 +6,8 @@ If the script is run directly, it initializes an empty evaluations dataframe.
 Example Usage:
 from Model_Evaluation import ModelsEvaluator
 
-modelsEvaluator = ModelsEvaluator(X_train, y_train, X_val, y_val, X_test, y_test)
-modelsEvaluator.evaluate("GaussianNB", GaussianNB(), save_model=True)
+models_evaluator = ModelsEvaluator(X_train, y_train, X_val, y_val, X_test, y_test)
+models_evaluator.evaluate("GaussianNB", GaussianNB(), save_model=True)
 """
 
 import pandas as pd
@@ -61,5 +61,5 @@ if __name__ == "__main__":
     y_train = pd.read_csv("data/preprocessed data/y_train.csv", header=None).to_numpy().ravel()
     y_val = pd.read_csv("data/preprocessed data/y_val.csv", header=None).to_numpy().ravel()
     y_test = pd.read_csv("data/preprocessed data/y_test.csv", header=None).to_numpy().ravel()
-    modelsEvaluator = ModelsEvaluator(X_train, y_train, X_val, y_val, X_test, y_test)
-    print(modelsEvaluator.get_all_evaluations())
+    models_evaluator = ModelsEvaluator(X_train, y_train, X_val, y_val, X_test, y_test)
+    print(models_evaluator.get_all_evaluations())
