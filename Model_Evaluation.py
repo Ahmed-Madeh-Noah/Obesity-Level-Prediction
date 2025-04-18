@@ -40,3 +40,14 @@ class ModelsEvaluator:
 
     def get_all_evaluations(self) -> pd.DataFrame:
         return self.evaluations.copy()
+
+
+if __name__ == "__main__":
+    X_train = pd.read_csv("data/preprocessed data/X_train.csv")
+    X_val = pd.read_csv("data/preprocessed data/X_val.csv")
+    X_test = pd.read_csv("data/preprocessed data/X_test.csv")
+    y_train = pd.read_csv("data/preprocessed data/y_train.csv", header=None).to_numpy().ravel()
+    y_val = pd.read_csv("data/preprocessed data/y_val.csv", header=None).to_numpy().ravel()
+    y_test = pd.read_csv("data/preprocessed data/y_test.csv", header=None).to_numpy().ravel()
+    modelsEvaluator = ModelsEvaluator(X_train, y_train, X_val, y_val, X_test, y_test)
+    print(modelsEvaluator.get_all_evaluations())
