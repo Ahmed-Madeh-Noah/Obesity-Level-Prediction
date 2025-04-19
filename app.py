@@ -40,8 +40,9 @@ def predict():
         input_df = preprocess_input(request.form)
         input_series = input_df.iloc[0]
         prediction = predict_from_input(input_series)
+        prediction = prediction.capitalize()
 
-        return render_template("index.html", prediction_text=f"Predicted Obesity Level: {prediction[0].replace('_', ' ')}")
+        return render_template("index.html", prediction_text=f"Predicted Obesity Level: {prediction.replace('_', ' ')}")
     except Exception as e:
         return render_template("index.html", prediction_text=f"Error: {str(e)}")
 
