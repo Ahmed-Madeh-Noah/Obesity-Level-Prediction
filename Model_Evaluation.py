@@ -11,7 +11,6 @@ models_evaluator.evaluate("GaussianNB", GaussianNB(), save_model=True)
 """
 
 import pandas as pd
-import numpy as np
 from sklearn.base import BaseEstimator
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, precision_score, recall_score, f1_score
 import joblib
@@ -20,18 +19,17 @@ import matplotlib.pyplot as plt
 
 
 class ModelsEvaluator:
-    def __init__(self, xtrain: pd.DataFrame, ytrain: np.ndarray, xval: pd.DataFrame, yval: np.ndarray,
-                 xtest: pd.DataFrame, ytest: np.ndarray):
+    def __init__(self):
         self.evaluations = pd.DataFrame(
             columns=["Train_Accuracy", "Val_Accuracy", "Test_Accuracy", "Balanced_Accuracy", "Precision", "Recall",
                      "F1_Score"])
         self.evaluations.index.name = "Model"
-        self.X_train = xtrain
-        self.y_train = ytrain
-        self.X_val = xval
-        self.y_val = yval
-        self.X_test = xtest
-        self.y_test = ytest
+        self.X_train = pd.read_csv("data/preprocessed data/X_train.csv")
+        self.y_train = pd.read_csv("data/preprocessed data/X_val.csv")
+        self.X_val = pd.read_csv("data/preprocessed data/X_test.csv")
+        self.y_val = pd.read_csv("data/preprocessed data/y_train.csv", header=None).to_numpy().ravel()
+        self.X_test = pd.read_csv("data/preprocessed data/y_val.csv", header=None).to_numpy().ravel()
+        self.y_test = pd.read_csv("data/preprocessed data/y_test.csv", header=None).to_numpy().ravel()
 
     def evaluate(self, model_name: str, model: BaseEstimator, save_model: bool = False) -> pd.Series:
         model.fit(self.X_train, self.y_train)
@@ -70,11 +68,5 @@ class ModelsEvaluator:
 
 
 if __name__ == "__main__":
-    X_train = pd.read_csv("data/preprocessed data/X_train.csv")
-    X_val = pd.read_csv("data/preprocessed data/X_val.csv")
-    X_test = pd.read_csv("data/preprocessed data/X_test.csv")
-    y_train = pd.read_csv("data/preprocessed data/y_train.csv", header=None).to_numpy().ravel()
-    y_val = pd.read_csv("data/preprocessed data/y_val.csv", header=None).to_numpy().ravel()
-    y_test = pd.read_csv("data/preprocessed data/y_test.csv", header=None).to_numpy().ravel()
-    models_evaluator = ModelsEvaluator(X_train, y_train, X_val, y_val, X_test, y_test)
+    models_evaluator = ModelsEvaluator()
     print(models_evaluator.get_all_evaluations())
