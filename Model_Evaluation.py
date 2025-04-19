@@ -19,10 +19,10 @@ import matplotlib.pyplot as plt
 
 
 class ModelsEvaluator:
-    def __init__(self):
+    def __init__(self, index: str = "Model"):
         self.evaluations = pd.DataFrame(
             columns=["Train_Accuracy", "Val_Accuracy", "Test_Accuracy", "Balanced_Accuracy", "Precision", "F1_Score"])
-        self.evaluations.index.name = "Model"
+        self.evaluations.index.name = index
         self.X_train = pd.read_csv("data/preprocessed data/X_train.csv")
         self.X_val = pd.read_csv("data/preprocessed data/X_val.csv")
         self.X_test = pd.read_csv("data/preprocessed data/X_test.csv")
@@ -50,18 +50,22 @@ class ModelsEvaluator:
     def get_all_evaluations(self) -> pd.DataFrame:
         return self.evaluations.copy()
 
-    def line_plot(self, x: str = "Model", filename: str = None) -> None:
+    def plot(self, plot_type: str, title: str = "", filename: str = None, x: str = "Model") -> None:
         df = self.get_all_evaluations()
-        if x == "Model":
+        if plot_type == "lineplot":
             df['Avg'] = df.mean(axis=1)
             df = df.sort_values('Avg').drop(columns='Avg')
-        df[x] = df.index
-        df = df.melt(id_vars=x, var_name='Metric', value_name='Score')
-        sns.lineplot(data=df, x=x, y='Score', hue='Metric', marker='o')
+            df[df.index.name] = df.index
+            df = df.melt(id_vars=x, var_name='Metric', value_name='Score')
+            sns.lineplot(data=df, x=x, y='Score', hue='Metric', marker='o')
+        else:
+            sns.heatmap(data=df.astype("float"), annot=True)
+        if title:
+            plt.title(title)
         plt.xticks(rotation=45)
         plt.tight_layout()
         if filename is not None:
-            plt.savefig(f"figures/{filename}.png")
+            plt.savefig(f"figures/{plot_type}_{filename}.png")
         plt.show()
 
 
