@@ -15,21 +15,23 @@ import numpy as np
 from sklearn.base import BaseEstimator
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, precision_score, recall_score, f1_score
 import joblib
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 class ModelsEvaluator:
-    def __init__(self, x_train: pd.DataFrame, y_train: np.ndarray, x_val: pd.DataFrame, y_val: np.ndarray,
-                 x_test: pd.DataFrame, y_test: np.ndarray):
+    def __init__(self, xtrain: pd.DataFrame, ytrain: np.ndarray, xval: pd.DataFrame, yval: np.ndarray,
+                 xtest: pd.DataFrame, ytest: np.ndarray):
         self.evaluations = pd.DataFrame(
             columns=["Train_Accuracy", "Val_Accuracy", "Test_Accuracy", "Balanced_Accuracy", "Precision", "Recall",
                      "F1_Score"])
         self.evaluations.index.name = "Model"
-        self.X_train = x_train
-        self.y_train = y_train
-        self.X_val = x_val
-        self.y_val = y_val
-        self.X_test = x_test
-        self.y_test = y_test
+        self.X_train = xtrain
+        self.y_train = ytrain
+        self.X_val = xval
+        self.y_val = yval
+        self.X_test = xtest
+        self.y_test = ytest
 
     def evaluate(self, model_name: str, model: BaseEstimator, save_model: bool = False) -> pd.Series:
         model.fit(self.X_train, self.y_train)
@@ -52,6 +54,19 @@ class ModelsEvaluator:
 
     def get_all_evaluations(self) -> pd.DataFrame:
         return self.evaluations.copy()
+
+    def line_plot(self, filename: str = None) -> None:
+        df = self.get_all_evaluations()
+        df['Avg'] = df.mean(axis=1)
+        df = df.sort_values('Avg').drop(columns='Avg')
+        df['Model'] = df.index.str.replace("Classifier", "")
+        df = df.melt(id_vars='Model', var_name='Metric', value_name='Score')
+        sns.lineplot(data=df, x='Model', y='Score', hue='Metric', marker='o')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        if filename is not None:
+            plt.savefig(f"{filename}.png")
+        plt.show()
 
 
 if __name__ == "__main__":
