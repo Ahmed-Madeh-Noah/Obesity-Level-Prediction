@@ -52,8 +52,9 @@ class ModelsEvaluator:
 
     def line_plot(self, x: str = "Model", filename: str = None) -> None:
         df = self.get_all_evaluations()
-        df['Avg'] = df.mean(axis=1)
-        df = df.sort_values('Avg').drop(columns='Avg')
+        if x == "Model":
+            df['Avg'] = df.mean(axis=1)
+            df = df.sort_values('Avg').drop(columns='Avg')
         df[x] = df.index
         df = df.melt(id_vars=x, var_name='Metric', value_name='Score')
         sns.lineplot(data=df, x=x, y='Score', hue='Metric', marker='o')
