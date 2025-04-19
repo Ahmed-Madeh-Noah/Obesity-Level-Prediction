@@ -25,10 +25,10 @@ class ModelsEvaluator:
                      "F1_Score"])
         self.evaluations.index.name = "Model"
         self.X_train = pd.read_csv("data/preprocessed data/X_train.csv")
-        self.y_train = pd.read_csv("data/preprocessed data/X_val.csv")
-        self.X_val = pd.read_csv("data/preprocessed data/X_test.csv")
-        self.y_val = pd.read_csv("data/preprocessed data/y_train.csv", header=None).to_numpy().ravel()
-        self.X_test = pd.read_csv("data/preprocessed data/y_val.csv", header=None).to_numpy().ravel()
+        self.X_val = pd.read_csv("data/preprocessed data/X_val.csv")
+        self.X_test = pd.read_csv("data/preprocessed data/X_test.csv")
+        self.y_train = pd.read_csv("data/preprocessed data/y_train.csv", header=None).to_numpy().ravel()
+        self.y_val = pd.read_csv("data/preprocessed data/y_val.csv", header=None).to_numpy().ravel()
         self.y_test = pd.read_csv("data/preprocessed data/y_test.csv", header=None).to_numpy().ravel()
 
     def evaluate(self, model_name: str, model: BaseEstimator, save_model: bool = False) -> pd.Series:
