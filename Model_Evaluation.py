@@ -59,7 +59,7 @@ class ModelsEvaluator:
         df = self.get_all_evaluations()
         df['Avg'] = df.mean(axis=1)
         df = df.sort_values('Avg').drop(columns='Avg')
-        df['Model'] = df.index.str.replace("Classifier", "")
+        df['Model'] = df.index
         df = df.melt(id_vars='Model', var_name='Metric', value_name='Score')
         sns.lineplot(data=df, x='Model', y='Score', hue='Metric', marker='o')
         plt.xticks(rotation=45)
