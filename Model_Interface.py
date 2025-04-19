@@ -1,5 +1,5 @@
 """
-DecisionTreeClassifier Interface Script
+Model Interface Script
 This script defines the function needed to send user input to the classifier
 and return the corresponding obesity level.
 If the script is run directly, it tests the first column of the cleaned data.
@@ -14,9 +14,9 @@ import pandas as pd
 from Feature_Engineering import add_bmi, add_bmr
 import joblib
 
-preprocessor = joblib.load('preprocessors/X_preprocessor.pkl')
+preprocessor = joblib.load('utils/X_preprocessor.pkl')
 model = joblib.load('models/SVC.pkl')
-y_encoder = joblib.load('preprocessors/y_encoder.pkl')
+y_encoder = joblib.load('utils/y_encoder.pkl')
 
 
 def predict_from_input(user_input: pd.Series) -> str:
