@@ -21,8 +21,7 @@ import matplotlib.pyplot as plt
 class ModelsEvaluator:
     def __init__(self):
         self.evaluations = pd.DataFrame(
-            columns=["Train_Accuracy", "Val_Accuracy", "Test_Accuracy", "Balanced_Accuracy", "Precision", "Recall",
-                     "F1_Score"])
+            columns=["Train_Accuracy", "Val_Accuracy", "Test_Accuracy", "Balanced_Accuracy", "Precision", "F1_Score"])
         self.evaluations.index.name = "Model"
         self.X_train = pd.read_csv("data/preprocessed data/X_train.csv")
         self.X_val = pd.read_csv("data/preprocessed data/X_val.csv")
@@ -42,8 +41,6 @@ class ModelsEvaluator:
         self.evaluations.loc[model_name, "Balanced_Accuracy"] = balanced_accuracy_score(self.y_test, test_pred)
         self.evaluations.loc[model_name, "Precision"] = precision_score(self.y_test, test_pred, average="weighted",
                                                                         zero_division=0)
-        self.evaluations.loc[model_name, "Recall"] = recall_score(self.y_test, test_pred, average="weighted",
-                                                                  zero_division=0)
         self.evaluations.loc[model_name, "F1_Score"] = f1_score(self.y_test, test_pred, average="weighted",
                                                                 zero_division=0)
         if save_model:
@@ -53,17 +50,17 @@ class ModelsEvaluator:
     def get_all_evaluations(self) -> pd.DataFrame:
         return self.evaluations.copy()
 
-    def line_plot(self, filename: str = None) -> None:
+    def line_plot(self, x: str = "Model", filename: str = None) -> None:
         df = self.get_all_evaluations()
         df['Avg'] = df.mean(axis=1)
         df = df.sort_values('Avg').drop(columns='Avg')
-        df['Model'] = df.index
-        df = df.melt(id_vars='Model', var_name='Metric', value_name='Score')
-        sns.lineplot(data=df, x='Model', y='Score', hue='Metric', marker='o')
+        df[x] = df.index
+        df = df.melt(id_vars=x, var_name='Metric', value_name='Score')
+        sns.lineplot(data=df, x=x, y='Score', hue='Metric', marker='o')
         plt.xticks(rotation=45)
         plt.tight_layout()
         if filename is not None:
-            plt.savefig(f"{filename}.png")
+            plt.savefig(f"figures/{filename}.png")
         plt.show()
 
 
