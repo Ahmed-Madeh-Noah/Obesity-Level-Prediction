@@ -12,7 +12,7 @@ models_evaluator.evaluate("GaussianNB", GaussianNB(), save_model=True)
 
 import pandas as pd
 from sklearn.base import BaseEstimator
-from sklearn.metrics import accuracy_score, balanced_accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, balanced_accuracy_score, precision_score, f1_score
 import joblib
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -30,7 +30,7 @@ class ModelsEvaluator:
         self.y_val = pd.read_csv("data/preprocessed data/y_val.csv", header=None).to_numpy().ravel()
         self.y_test = pd.read_csv("data/preprocessed data/y_test.csv", header=None).to_numpy().ravel()
 
-    def evaluate(self, model_name: str, model: BaseEstimator, save_model: bool = False) -> pd.Series:
+    def evaluate(self, model_name: str, model: BaseEstimator, save_model: bool = False) -> pd.DataFrame:
         model.fit(self.X_train, self.y_train)
         train_pred = model.predict(self.X_train)
         val_pred = model.predict(self.X_val)
@@ -45,7 +45,7 @@ class ModelsEvaluator:
                                                                 zero_division=0)
         if save_model:
             joblib.dump(model, f"models/{model_name}.pkl")
-        return self.evaluations.loc[model_name].copy()
+        return self.evaluations.tail(1).copy()
 
     def get_all_evaluations(self) -> pd.DataFrame:
         return self.evaluations.copy()
