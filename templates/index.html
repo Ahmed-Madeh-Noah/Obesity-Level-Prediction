@@ -34,30 +34,28 @@
               <option value="no">No</option>
           </select>
 
-          <label for="FAVC">Frequent Consumption of High Caloric Food (FAVC):</label>
+          <label for="FAVC">Frequent Consumption of High Caloric Food:</label>
           <select name="FAVC" required>
               <option value="yes">Yes</option>
               <option value="no">No</option>
           </select>
 
-          <label for="FCVC">Frequency of Vegetable Consumption (1-3):</label>
-          <input type="number" name="FCVC" step="0.01" max="3" required>
-<!--          <select name="FCVC" required>-->
-<!--              <option value="1">1</option>-->
-<!--              <option value="2">2</option>-->
-<!--              <option value="3">3</option>-->
-<!--          </select>-->
+          <label for="FCVC">Frequency of Vegetable Consumption (1 = Less Frequent, 2 = Moderate, 3 = More Frequent):</label>
+          <select name="FCVC" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </select>
 
-          <label for="NCP">Number of Meals (1-4):</label>
-          <input type="number" name="NCP" step="0.01" max="4" required>
-<!--          <select name="NCP" required>-->
-<!--              <option value="1">1</option>-->
-<!--              <option value="2">2</option>-->
-<!--              <option value="3">3</option>-->
-<!--              <option value="4">4</option>-->
-<!--          </select>-->
+          <label for="NCP">Number of Meals:</label>
+          <select name="NCP" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+          </select>
 
-          <label for="CAEC">Eating Between Meals (CAEC):</label>
+          <label for="CAEC">Eating Between Meals:</label>
           <select name="CAEC" required>
               <option value="Always">Always</option>
               <option value="Frequently">Frequently</option>
@@ -71,26 +69,34 @@
               <option value="no">No</option>
           </select>
 
-          <label for="CH2O">Water Consumption In Liter (0-3):</label>
-          <input type="number" name="CH2O" step="0.01" max="3" required>
-<!--          <select name="CH2O" required>-->
-<!--              <option value="0">0</option>-->
-<!--              <option value="1">1</option>-->
-<!--              <option value="2">2</option>-->
-<!--              <option value="3">3</option>-->
-<!--          </select>-->
+          <label for="CH2O">Water Consumption (0 = Very Low, 1 = Low, 2 = Moderate, 3 = High):</label>
+          <select name="CH2O" required>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </select>
 
-          <label for="SCC">Calories Monitor (SCC):</label>
+          <label for="SCC">Calories Monitor:</label>
           <select name="SCC" required>
               <option value="yes">Yes</option>
               <option value="no">No</option>
           </select>
 
-          <label for="FAF">Physical Activity Frequency (FAF):</label>
-          <input type="number" name="FAF" step="0.01" required>
+          <label for="FAF">Physical Activity Frequency (0 = None, 1 = Low, 2 = Moderate, 3 = High):</label>
+          <select name="FAF" required>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </select>
 
-          <label for="TUE">Time Using Technology Devices (TUE):</label>
-          <input type="number" name="TUE" step="0.001" required>
+          <label for="TUE">Time Using Technology Devices (0 = None, 1 = Low, 2 = High):</label>
+          <select name="TUE" required>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+          </select>
 
           <label for="CALC">Alcohol Consumption:</label>
           <select name="CALC" required>
