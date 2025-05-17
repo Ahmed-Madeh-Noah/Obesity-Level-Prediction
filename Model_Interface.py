@@ -11,7 +11,7 @@ prediction = predict_from_input(user_input)
 """
 
 import pandas as pd
-from Feature_Engineering import add_bmi, add_bmr
+from Notebooks.Feature_Engineering import add_bmi, add_bmr
 import joblib
 
 preprocessor = joblib.load('utils/X_preprocessor.pkl')
