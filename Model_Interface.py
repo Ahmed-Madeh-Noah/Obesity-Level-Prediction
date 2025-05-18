@@ -15,7 +15,7 @@ from Notebooks.Feature_Engineering import add_bmi, add_bmr
 import joblib
 
 preprocessor = joblib.load('utils/X_preprocessor.pkl')
-model = joblib.load('models/SVC.pkl')
+model = joblib.load('models/GradientBoosting.pkl')
 y_encoder = joblib.load('utils/y_encoder.pkl')
 
 

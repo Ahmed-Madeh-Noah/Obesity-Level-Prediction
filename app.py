@@ -15,15 +15,15 @@ def preprocess_input(form):
         "Overweight_Family_History": form["family_history_with_overweight"].lower(),
         "High_Calorie_Consumption": form["FAVC"].lower(),
         "Vegetable_Consumption": float(form["FCVC"]),
-        "Main_Meals": float(form["NCP"]),
+        # "Main_Meals": float(form["NCP"]),
         "Snack_Consumption": form["CAEC"].lower(),
-        "Smoker": form["SMOKE"].lower(),
+        # "Smoker": form["SMOKE"].lower(),
         "Water_Intake": float(form["CH2O"]),
-        "Calorie_Monitoring": form["SCC"].lower(),
+        # "Calorie_Monitoring": form["SCC"].lower(),
         "Physical_Activity": float(form["FAF"]),
         "Tech_Time": float(form["TUE"]),
-        "Alcohol_Consumption": form["CALC"].lower(),
-        "Transportation_Mean": form["MTRANS"].replace(" ", "_")
+        "Alcohol_Consumption": form["CALC"].lower()
+        # "Transportation_Mean": form["MTRANS"].replace(" ", "_")
     }])
 
     return df
