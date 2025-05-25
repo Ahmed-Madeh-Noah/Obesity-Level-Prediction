@@ -23,12 +23,12 @@ class ModelsEvaluator:
         self.evaluations = pd.DataFrame(
             columns=["Train_Accuracy", "Val_Accuracy", "Test_Accuracy", "Balanced_Accuracy", "Precision", "F1_Score"])
         self.evaluations.index.name = index
-        self.X_train = pd.read_csv("../data/preprocessed data/X_train.csv")
-        self.X_val = pd.read_csv("../data/preprocessed data/X_val.csv")
-        self.X_test = pd.read_csv("../data/preprocessed data/X_test.csv")
-        self.y_train = pd.read_csv("../data/preprocessed data/y_train.csv", header=None).to_numpy().ravel()
-        self.y_val = pd.read_csv("../data/preprocessed data/y_val.csv", header=None).to_numpy().ravel()
-        self.y_test = pd.read_csv("../data/preprocessed data/y_test.csv", header=None).to_numpy().ravel()
+        self.X_train = pd.read_csv("../data/preprocessed_data/X_train.csv")
+        self.X_val = pd.read_csv("../data/preprocessed_data/X_val.csv")
+        self.X_test = pd.read_csv("../data/preprocessed_data/X_test.csv")
+        self.y_train = pd.read_csv("../data/preprocessed_data/y_train.csv", header=None).to_numpy().ravel()
+        self.y_val = pd.read_csv("../data/preprocessed_data/y_val.csv", header=None).to_numpy().ravel()
+        self.y_test = pd.read_csv("../data/preprocessed_data/y_test.csv", header=None).to_numpy().ravel()
 
     def evaluate(self, model_name: str, model: BaseEstimator, save_model: bool = False) -> pd.DataFrame:
         model.fit(self.X_train, self.y_train)
