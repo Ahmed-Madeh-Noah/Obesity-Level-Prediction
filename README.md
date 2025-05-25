@@ -99,7 +99,7 @@ pip install -r requirements.txt
 ### 🔘 Option 1: With Flask GUI
 
 ```bash
-python app.py
+python Obesity-Level-Prediction.py
 ```
 
 - Open `http://127.0.0.1:8000/` in your browser
